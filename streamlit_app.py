@@ -1,16 +1,12 @@
 import streamlit as st
 import openai
 import time
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
 
 # Set up OpenAI API key
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets['OPENAI_API_KEY']
 
 # Set up the assistant ID
-assistant_id = os.getenv('ASSISTANT_ID')
+assistant_id = st.secrets['ASSISTANT_ID']
 
 def create_thread():
     thread = openai.beta.threads.create()
